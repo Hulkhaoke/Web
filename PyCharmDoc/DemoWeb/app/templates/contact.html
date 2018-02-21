@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    {% load staticfiles %}
+	<title>HulkHaoke</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--
+    <style>
+        body
+        {
+            background:url({% static "dog.JPG" %});
+            background-size:cover;
+            background-repeat:no-repeat;
+        }
+    </style>
+-->
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Demo</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+				<li class="active"><a href="/contact/"><span class="glyphicon glyphicon-headphones"></span> Contact</a></li>
+                <li>
+                    <div style="padding: 10px 30px 10px;">
+                        <form class="bs-example bs-example-form" role="form">
+                            <div class="row">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div><!-- /input-group -->
+                            </div><!-- /.row -->
+                        </form>
+                    </div>
+                </li>
+			</ul>
+		</div><!-- /.nav-collapse -->
+	</div><!-- /.container -->
+</div>
+
+<div style="padding: 10px 150px 50px;">
+    <code>略略略</code>
+</div>
+
+<video id="video" style="margin:auto; position: absolute;left: 0;right: 0;" width="window.innerWidth" height="window.innerHeight" autoplay></video>
+
+<script>
+    var video = document.getElementById('video');
+    // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+        });
+    }
+</script>
+
+</body>
+</html>

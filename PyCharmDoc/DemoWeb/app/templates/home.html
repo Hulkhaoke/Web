@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    {% load staticfiles %}
+	<title>HulkHaoke</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<!--
+<style>
+    body
+    {
+        background:url({% static "dog.JPG" %});
+        background-size:cover;
+        background-repeat:no-repeat;
+    }
+</style>
+-->
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Demo</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+				<li><a href="/contact/"><span class="glyphicon glyphicon-headphones"></span> Contact</a></li>
+                <li>
+                    <div style="padding: 10px 30px 10px;">
+                        <form class="bs-example bs-example-form" role="form">
+                            <div class="row">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div><!-- /input-group -->
+                            </div><!-- /.row -->
+                        </form>
+                    </div>
+                </li>
+			</ul>
+		</div><!-- /.nav-collapse -->
+	</div><!-- /.container -->
+</div>
+
+<script>
+    var numPoint = 0;
+
+    $(document).ready(function(){
+      $("body").delegate("#pz", 'click', function(){
+        $("#pz").remove();
+        createDiv();
+      });
+      numPoint++;
+    });
+
+    function createDiv(){
+        //首先创建div
+        var pz = document.createElement('div');
+        document.body.appendChild(pz);
+        //计算div的确切位置
+        var seatX = Math.random()*(window.innerWidth-300)+100;//横坐标
+        var seatY = Math.random()*(window.innerHeight-300)+100;//纵坐标
+        //给div设置样式，比如大小、位置
+        var cssStr = "position:absolute;left:" + seatX + 'px;top:' + seatY + 'px;';
+        //将样式添加到div上，显示div
+        pz.style.cssText = cssStr;
+        pz.innerHTML = '点我';
+        pz.id = 'pz';
+    }
+</script>
+
+<div id="pz" style="left: 100px; position: absolute; top: 100px;">点我</div>
+
+</body>
+</html>
